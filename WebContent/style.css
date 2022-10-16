@@ -1,0 +1,54 @@
+.styleInput {
+	width: 70% !important;
+	font-family: ui-serif;
+}
+
+.styleTitle {
+	text-align: center !important;
+	font-size: 39px !important;
+	font-family: ui-serif !important;
+	padding: 0% 15% !important;
+	padding-bottom: 8% !important;
+	color: cadetblue !important;
+}
+
+.imageStyle {
+	width: 100% !important;
+	padding-left: 20% !important;
+	padding-top: 20% !important;
+}
+
+.buttonL {
+	width: 327% !important;
+	font-size: 18px !important;
+	font-weight: 100 !important;
+}
+
+.buttonC {
+	width: 158% !important;
+	left: 115% ! important;
+}
+
+.buttonL :hover {
+	transition: 1.5s ease-in-out !important;
+	background: #4F95DA !important;
+	stroke-dashoffset: -480 !important;
+	
+}
+.buttonC :hover {
+	transition: 2s ease-in-out !important;
+	background: #4F95DA !important;
+	stroke-dashoffset: -480 !important;
+}
+
+
+.styleBox1 {
+	width: 300% !important;
+	padding-left: 90% !important;
+	padding-top: 85% !important;
+}
+.adminTextWelcome{
+	padding: 2% 4% !important;
+    font-size: 20px !important;
+    font-family: cursive !important;
+}
