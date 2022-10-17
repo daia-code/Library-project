@@ -9,8 +9,15 @@ sap.ui.controller("onclick.onclick", {
 //
 //	},
 
-	goToPage:function(oEvent){
-		app.to("idadmin");
+		goToPage:function(oEvent){
+		var nameUser=sap.ui.getCore().byId("inputUser").getValue();
+		if(nameUser=="admin" || nameUser=="ADMIN" | nameUser=="Admin"){
+			app.to("idadmin");
+		}else{
+			app.to("idreader");		
+		}
+
+	
 	},
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
