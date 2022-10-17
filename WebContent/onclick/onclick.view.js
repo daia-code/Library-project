@@ -22,7 +22,7 @@ sap.ui.jsview("onclick.onclick", {
 		var title=new sap.m.Label({
 			text:"Login page"
 		}).addStyleClass("styleTitle");
-		var oLabel1 = new sap.m.Input({
+		var oLabel1 = new sap.m.Input("inputUser",{
 			placeholder : "Enter user"
 		}).addStyleClass("styleInput");
 		var oLabel2 = new sap.m.Input({
