@@ -33,22 +33,38 @@
 	transition: 1.5s ease-in-out !important;
 	background: #4F95DA !important;
 	stroke-dashoffset: -480 !important;
-	
 }
+
 .buttonC :hover {
 	transition: 2s ease-in-out !important;
 	background: #4F95DA !important;
 	stroke-dashoffset: -480 !important;
 }
 
-
 .styleBox1 {
 	width: 300% !important;
 	padding-left: 90% !important;
 	padding-top: 85% !important;
 }
-.adminTextWelcome{
-	padding: 2% 4% !important;
-    font-size: 20px !important;
-    font-family: cursive !important;
+
+.buttonWarning1 {
+	left: -35% !important;
+	width: 30%! important;
+}
+
+.textWelcome {
+	padding: 2% 0% !important;
+	padding-left: 5% !important;
+	font-size: 20px !important;
+	font-family: cursive !important;
+}
+
+.userWelcome {
+	padding: 2% 0% !important;
+	font-size: 20px !important;
+	font-family: cursive !important;
+}
+
+.logOutBtn {
+	left: 78% !important;
 }
