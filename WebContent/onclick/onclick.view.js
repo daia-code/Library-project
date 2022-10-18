@@ -19,10 +19,10 @@ sap.ui.jsview("onclick.onclick", {
 	 * @memberOf onclick.onclick
 	 */
 	createContent : function(oController) {
-		var title=new sap.m.Label({
-			text:"Login page"
+		var title = new sap.m.Label({
+			text : "Login page"
 		}).addStyleClass("styleTitle");
-		var oLabel1 = new sap.m.Input("inputUser",{
+		var oLabel1 = new sap.m.Input("inputUser", {
 			placeholder : "Enter user"
 		}).addStyleClass("styleInput");
 		var oLabel2 = new sap.m.Input({
@@ -32,33 +32,39 @@ sap.ui.jsview("onclick.onclick", {
 		var image = new sap.m.Image({
 			src : "onclick/image/digital.jpg"
 		}).addStyleClass("imageStyle");
-        var bLog=new sap.m.Button({
-        	text:"Login",
-        	press:[oController.goToPage,oController]
-        }).addStyleClass("buttonL");
-        var bNew=new sap.m.Button({
-        	text:"Create new account"
-        }).addStyleClass("buttonC");
-        var buttonBox = new sap.ui.layout.HorizontalLayout({
-			content : [ 
-			            bLog,
-			            bNew ]
+		var bLog = new sap.m.Button({
+			text : "Login",
+			press : [ oController.goToPage, oController ]
+		}).addStyleClass("buttonL");
+		var bNew = new sap.m.Button({
+			text : "Forget password"
+		}).addStyleClass("buttonC");
+		var buttonBox = new sap.ui.layout.HorizontalLayout({
+			content : [ bLog, bNew ]
 		});
 		var inputBox = new sap.ui.layout.VerticalLayout({
-			content : [ title,
-			            oLabel1, 
-			            oLabel2,
-			           buttonBox]
+			content : [ title, oLabel1, oLabel2, buttonBox ]
 		}).addStyleClass("styleBox1");
 		var contestBox = new sap.ui.layout.HorizontalLayout({
-			content : [ 
-			            image, 
-			            inputBox ]
+			content : [ image, inputBox ]
+		});
+		var warningMessage = new sap.m.Dialog("wMessage", {
+			title : "Warning",
+			state : sap.ui.core.ValueState.Warning,
+			content : new sap.m.Text({
+				text : "  You need to complete all the data ... "
+			}),
+			beginButton : new sap.m.Button({
+				type : sap.m.ButtonType.Emphasized,
+				text : "OK",
+				press : function() {
+					warningMessage.close();
+				}
+			}).addStyleClass("buttonWarning1")
 		});
 		var oPage = new sap.m.Page({
 			title : "OnClick",
-			content : [
-			           contestBox ]
+			content : [ contestBox ]
 		});
 		return oPage;
 	}
