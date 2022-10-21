@@ -25,7 +25,7 @@ sap.ui.jsview("onclick.onclick", {
 		var oLabel1 = new sap.m.Input("inputUser", {
 			placeholder : "Enter user"
 		}).addStyleClass("styleInput");
-		var oLabel2 = new sap.m.Input({
+		var oLabel2 = new sap.m.Input("passUser",{
 			type : "Password",
 			placeholder : "Enter password"
 		}).addStyleClass("styleInput");
