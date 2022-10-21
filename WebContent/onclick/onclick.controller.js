@@ -13,18 +13,22 @@ sap.ui.controller("onclick.onclick", {
 	// },
 	goToPage : function(oEvent) {
 		var nameUser = sap.ui.getCore().byId("inputUser").getValue();
-		if (nameUser == "admin" || nameUser == "ADMIN" | nameUser == "Admin") {
-			var adminName = sap.ui.getCore().byId("nameAdmin");
-			adminName.setText(nameUser);
-			app.to("idadmin");
-		} else if (nameUser == "") {
+		var passUser = sap.ui.getCore().byId("passUser").getValue();
+		if (nameUser == "" || passUser == "") {
 			var wMessage = sap.ui.getCore().byId("wMessage");
 			wMessage.open();
 
 		} else {
-			var adminName = sap.ui.getCore().byId("nameUser")
-			adminName.setText(nameUser);
-			app.to("idreader");
+			if (nameUser == "admin" || nameUser == "ADMIN"
+					| nameUser == "Admin") {
+				var adminName = sap.ui.getCore().byId("nameAdmin");
+				adminName.setText(nameUser);
+				app.to("idadmin");
+			} else {
+				var adminName = sap.ui.getCore().byId("nameUser")
+				adminName.setText(nameUser);
+				app.to("idreader");
+			}
 		}
 
 	},
