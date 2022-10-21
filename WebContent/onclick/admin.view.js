@@ -30,19 +30,43 @@ sap.ui.jsview("onclick.admin", {
 			press : function() {
 				var adminName = sap.ui.getCore().byId("inputUser");
 				adminName.setValue("");
+				var pass = sap.ui.getCore().byId("passUser");
+				pass.setValue("");
 				app.to("idonclick1");
 			}
 
 		}).addStyleClass("logOutBtn");
+		var readerList=  new sap.m.List({
+			headerText:"Readers:"
+	     });
+		
+		var readerInfo=new sap.m.StandardListItem({
+			title:"Information about reader"
+			
+		        	
+		});
+		var readerBook=new sap.ui.table.Table({
+			title:"History reading"
+		        	
+		}).addStyleClass("historyR");
+		var readerBox = new sap.ui.layout.VerticalLayout({
+			content : [ readerInfo, readerBook ]
+		})
+		var spliter=new sap.ui.layout.Splitter({
+			contentAreas:[
+			   readerList, readerBox]          
+		});
 		var oPage = new sap.m.Page({
 			title : "Controll page",
 			showNavButton : true,
 			navButtonPress : function() {
 				var adminName = sap.ui.getCore().byId("inputUser");
 				adminName.setValue("");
+				var pass = sap.ui.getCore().byId("passUser");
+				pass.setValue("");
 				app.back();
 			},
-			content : [ oLabel, oLabelUser, logOut ]
+			content : [ oLabel, oLabelUser, logOut, spliter ]
 		});
 		return oPage
 	}
