@@ -10,6 +10,21 @@ sap.ui.controller("onclick.admin", {
 // onInit: function() {
 //
 // },
+	openSettingsDialog:function(oEvent){
+		var dialog=sap.ui.getCore().byId("settingsDialog");
+		dialog.open();
+	},
+	openInfoLibrary:function(oEvent){
+		var dialog=sap.ui.getCore().byId("infoAdmin");
+		dialog.open();
+	},
+	appBack: function() {
+		var adminName = sap.ui.getCore().byId("inputUser");
+		adminName.setValue("");
+		var pass = sap.ui.getCore().byId("passUser");
+		pass.setValue("");
+		app.back();
+	},
 /**
  * Similar to onAfterRendering, but this hook is invoked before the controller's
  * View is re-rendered (NOT before the first rendering! onInit() is used for
