@@ -44,9 +44,27 @@ sap.ui.jsview("onclick.admin", {
 
 		}).addStyleClass("logOutBtn");
 		var readerList = new sap.m.List({
-			headerText : "Readers:"
-		});
+			headerText : "Readers:",
+			items : []
 
+		});
+		readerList.bindItems({
+			path : "/users",
+			template : new sap.m.StandardListItem({
+				title : "{name}",
+				type : sap.m.ListType.Navigation
+			})
+
+		});
+		var addReader = new sap.m.Button({
+			icon : "sap-icon://add",
+			press : [ oController.createAccount, oController ]
+		}).addStyleClass("styleBtnMore");
+		var firstBox = new sap.ui.layout.VerticalLayout({
+			content : [ readerList, addReader ]
+		}).addStyleClass("styleList");
+		var listaReader = sap.ui.getCore().getModel("listOfReaders");
+		readerList.setModel(listaReader);
 		var readerInfo = new sap.m.StandardListItem({
 			title : "Information about reader"
 
@@ -55,11 +73,11 @@ sap.ui.jsview("onclick.admin", {
 			title : "History reading"
 
 		}).addStyleClass("historyR");
-		var readerBox = new sap.ui.layout.VerticalLayout({
+		var secondBox = new sap.ui.layout.VerticalLayout({
 			content : [ readerInfo, readerBook ]
-		})
+		});
 		var spliter = new sap.ui.layout.Splitter({
-			contentAreas : [ readerList, readerBox ]
+			contentAreas : [ firstBox, secondBox ]
 		});
 		var dialogSettings = new sap.m.Dialog("settingsDialog", {
 			title : "Settings account",
@@ -72,33 +90,68 @@ sap.ui.jsview("onclick.admin", {
 
 			}) ]
 		});
+		var dialogCreate = new sap.m.Dialog("createDialog", {
+			title : "Add reader",
+			content : [ new sap.m.Input("idNewName", {
+				placeholder : "Enter user"
+			}).addStyleClass("styleInputAdd"), new sap.m.Input("idEmail", {
+				placeholder : "Enter email"
+			}).addStyleClass("styleInputAdd"), new sap.m.Input("idPassword", {
+				type : "Password",
+				placeholder : "Enter password"
+			}).addStyleClass("styleInputAdd"), new sap.m.Input("idAddress", {
+				placeholder : "Enter address"
+			}).addStyleClass("styleInputAdd"),
+			new sap.m.Button({
+				text : "Save",
+				type : sap.m.ButtonType.Emphasized,
+				press :[oController.onPressCreateDataAccount,oController]
+
+			}),
+			new sap.m.Button({
+				text : "Close",
+				type : sap.m.ButtonType.Emphasized,
+				press : function() {
+					dialogCreate.close();
+				}
+
+			})]
+
+		});
+			var warningMessage = new sap.m.Dialog("eroareDialog", {
+				title : "Warning",
+				state : sap.ui.core.ValueState.Warning,
+				content : new sap.m.Text({
+					text : "  You need to complete all the fill ... "
+				}),
+				beginButton : new sap.m.Button({
+					type : sap.m.ButtonType.Emphasized,
+					text : "OK",
+					press : function() {
+						warningMessage.close();
+					}
+				}).addStyleClass("buttonWarning1")
+			});
 		var dialogLibrary = new sap.m.Dialog("infoAdmin", {
 			title : "Info",
 			content : [ new sap.ui.layout.VerticalLayout({
 				content : [ new sap.m.Text({
 					text : "Library OnClick"
-				}).addStyleClass("infoName"),
-				new sap.m.Text({
+				}).addStyleClass("infoName"), new sap.m.Text({
 					text : "Address: University Street no.1"
-				}).addStyleClass("infoGeneral"),
-				new sap.m.Text({
+				}).addStyleClass("infoGeneral"), new sap.m.Text({
 					text : "Schedule"
-				}).addStyleClass("infoSchel"),
-				new sap.m.Text({
+				}).addStyleClass("infoSchel"), new sap.m.Text({
 					text : "OPEN: Monday-Friday: 8 am - 8 pm"
-				}).addStyleClass("infoGeneral"), 
-				new sap.m.Text({
+				}).addStyleClass("infoGeneral"), new sap.m.Text({
 					text : "OPEN: Saturday: 9 am - 1 pm"
-				}).addStyleClass("infoGeneral"), 
-				new sap.m.Text({
+				}).addStyleClass("infoGeneral"), new sap.m.Text({
 					text : "CLOSE: Sunday"
-				}).addStyleClass("infoGeneral"),
-				new sap.m.Text({
+				}).addStyleClass("infoGeneral"), new sap.m.Text({
 					text : "domain:http://localhost:50000/onclick"
-				}).addStyleClass("infoGeneral"),
-				new sap.m.Button({
+				}).addStyleClass("infoGeneral"), new sap.m.Button({
 					text : "Close",
-					type:sap.m.ButtonType.Success,
+					type : sap.m.ButtonType.Success,
 					press : function() {
 						dialogLibrary.close();
 					}
