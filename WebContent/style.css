@@ -49,7 +49,7 @@
 
 .buttonWarning1 {
 	left: -35% !important;
-	width: 30%! important;
+	width: 30% ! important;
 }
 
 .textWelcome {
@@ -65,6 +65,67 @@
 	font-family: cursive !important;
 }
 
+.libraryLocal {
+	left: 60% !important;
+}
+
+.infoName {
+	padding-bottom: 10% !important;
+	font-size: 19px !important;
+	padding-left: 40% !important;
+	font-style: oblique !important;
+}
+
+.infoGeneral {
+	padding-bottom: 5% !important;
+	font-size: 16px !important;
+	font-style: oblique !important;
+}
+
+.infoSchel {
+	padding-top: 4% !important;
+	padding-bottom: 5% !important;
+	font-size: 18px !important;
+	padding-left: 50% !important;
+	font-style: oblique !important;
+}
+
+.infoBtn {
+	left: 49% !important;
+}
+
+.settingsBtn {
+	left: 61% !important;
+}
+
 .logOutBtn {
-	left: 78% !important;
+	left: 62% !important;
+}
+
+.historyR {
+	padding-top: 10% !important;
+}
+
+.resetAccount {
+	padding: 5% 37% !important;
+	width: 26% !important;
+}
+
+.resetBtn {
+	padding: 2% 0% !important;
+	width: 100% !important;
+}
+
+.styleList {
+	width: 100% !important;
+}
+
+.styleBtnMore {
+	padding: 1% 0% !important;
+	width: 100% !important;
+}
+.styleInputAdd{
+	padding: 0% 5% !important;
+	width: 70% !important;
+	font-family: ui-serif;
 }
