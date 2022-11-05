@@ -8,29 +8,96 @@ sap.ui.controller("onclick.onclick", {
 	 * 
 	 * @memberOf onclick.onclick
 	 */
-	// onInit: function() {
-	//
-	// },
+	onInit : function() {
+
+		var oModel = new sap.ui.model.json.JSONModel(); 
+		sap.ui.getCore().setModel(oModel, "model");
+		this.loadingData();
+		var data=oModel.getData(); 
+		//console.log(data.users);
+		var oModelU= new sap.ui.model.json.JSONModel();
+		sap.ui.getCore().setModel(oModelU, "modelUsers");
+		var dataUsers=data; // we create a data who will contains jus the array of users
+		oModelU.setData(dataUsers);
+		console.log(dataUsers);
+		var listModel = new sap.ui.model.json.JSONModel(); 
+		sap.ui.getCore().setModel(listModel,"listOfReaders");
+	},
+
+	loadingData : function() {
+		var oModel = sap.ui.getCore().getModel("model");
+		var i;
+		var sUrl = "http://localhost:5000/users";
+		var oModel = sap.ui.getCore().getModel("model");
+
+		jQuery
+				.ajax({
+					type : "GET",
+					contentType : "application/json",
+					url : sUrl,
+					dataType : "json",
+					async : false,
+					success : function(aResults) {
+						// Success
+
+						for (i = 0; i < aResults.length; i++) {
+							if (typeof (aResults[i].events) === "string") {
+								aResults[i].events = JSON
+										.parse(aResults[i].events);
+							}
+						}
+						var oModelData =  aResults; //contains all dates about library like id, name and users
+						
+						oModel.setData(oModelData);
+						console.log(aResults);
+					},
+					error : function() {
+						// Error
+						// Afisare eroare
+						console.log("Error");
+					}
+				})
+
+	},
 	goToPage : function(oEvent) {
+		var oModel = sap.ui.getCore().getModel("modelUsers");
+		var dataUsers=oModel.getData();
 		var nameUser = sap.ui.getCore().byId("inputUser").getValue();
 		var passUser = sap.ui.getCore().byId("passUser").getValue();
+		var listModel =  sap.ui.getCore().getModel("listOfReaders"); 
+		var listOfReaders={"users":[]};
+		var helloAdmin = sap.ui.getCore().byId("nameAdmin");
+		var helloReader = sap.ui.getCore().byId("nameReader");
 		if (nameUser == "" || passUser == "") {
 			var wMessage = sap.ui.getCore().byId("wMessage");
 			wMessage.open();
 
 		} else {
-			if (nameUser == "admin" || nameUser == "ADMIN"
-					| nameUser == "Admin") {
-				var adminName = sap.ui.getCore().byId("nameAdmin");
-				adminName.setText(nameUser);
+			for(var i=0;i<dataUsers.length;i++){
+				if (nameUser == dataUsers[i].name && dataUsers[i].role=="admin"  ) {
+				helloAdmin.setText(nameUser);
+			
+				for(var z=0;z<dataUsers.length;z++){
+					if(nameUser != dataUsers[z].name && dataUsers[z].role!="admin"  ){
+						listOfReaders.users.push(dataUsers[z]);
+					
+					}
+				}
+				listModel.setData(listOfReaders);
+				console.log(listOfReaders);
 				app.to("idadmin");
-			} else {
+			} else if(nameUser == dataUsers[i].name && dataUsers[i].role=="reader" ){
 				var adminName = sap.ui.getCore().byId("nameUser")
-				adminName.setText(nameUser);
+				helloReader.setText(nameUser);
 				app.to("idreader");
 			}
+			}
+		
 		}
 
+	},
+	goToPageReset:function(oEvent){
+		app.to("idreset");
 	},
 /**
  * Similar to onAfterRendering, but this hook is invoked before the controller's
