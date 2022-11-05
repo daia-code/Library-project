@@ -1,0 +1,105 @@
+{
+  "users": [
+    {
+      "name": "Lucaciu Daiana-Larisa",
+      "password": "admin",
+      "email": "admin@onclick.ro",
+      "address": "Oradea",
+      "role": "admin",
+      "books": [],
+      "library": {
+        "id": 1,
+        "name": "On Click"
+      },
+      "id": 1
+    },
+    {
+      "name": "Hash",
+      "password": "pass",
+      "email": "has@gmail.com",
+      "address": "Oradea",
+      "role": "reader",
+      "books": [],
+      "library": {
+        "id": 1,
+        "name": "On Click"
+      },
+      "id": 2
+    },
+    {
+      "name": "Andrei Grigor",
+      "password": "12345",
+      "email": "ag@gmail.com",
+      "address": "Oradea",
+      "role": "reader",
+      "library": {
+        "id": 1,
+        "name": "On Click"
+      },
+      "books": [],
+      "id": 3
+    },
+    {
+      "name": "Mihai Posdarescu",
+      "password": "12345",
+      "email": "",
+      "address": "Oradea",
+      "role": "reader",
+      "library": {
+        "id": 1,
+        "name": "On Click"
+      },
+      "books": [],
+      "id": 4
+    },
+    {
+      "name": "Doru Aleatoru",
+      "password": "12345",
+      "email": "",
+      "address": "Oradea",
+      "role": "reader",
+      "library": {
+        "id": 1,
+        "name": "On Click"
+      },
+      "books": "[]",
+      "id": 5
+    },
+    {
+      "name": "Test",
+      "email": "test@gmail.com",
+      "password": "12345",
+      "address": "Oradea",
+      "role": "reader",
+      "library": {
+        "id": 1,
+        "name": "On Click"
+      },
+      "books": [],
+      "id": 6
+    },
+    {
+      "name": "Ion Ionul",
+      "password": "12345",
+      "email": "",
+      "address": "Oradea",
+      "role": "reader",
+      "library": {
+        "id": 1,
+        "name": "On Click"
+      },
+      "books": [],
+      "id": 7
+    },
+    {
+      "name": "daiana",
+      "books": "[]",
+      "email": "lucaciu@gmail.com",
+      "password": "pass",
+      "address": "Oradea",
+      "role": "reader",
+      "library": "{\"id\":1,\"name\":\"On Click\"}",
+      "id": 9
+    }
+  ]
+}
