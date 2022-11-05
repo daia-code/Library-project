@@ -8,6 +8,21 @@ sap.ui.controller("onclick.reader", {
 //	onInit: function() {
 //
 //	},
+appBack: function() {
+		var adminName = sap.ui.getCore().byId("inputUser");
+		adminName.setValue("");
+		var pass = sap.ui.getCore().byId("passUser");
+		pass.setValue("");
+		app.back();
+	},
+	openInfoLibrary:function(oEvent){
+		var dialog=sap.ui.getCore().byId("infoUser");
+		dialog.open();
+	},
+	openSettingsDialog:function(){
+		var dialogOpen=sap.ui.getCore().byId("settingsDialogReader");
+		dialogOpen.open();
+	},
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
