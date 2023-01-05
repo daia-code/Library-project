@@ -1,4 +1,6 @@
-{
+{"library":{
+  "id": 1,
+  "name": "On Click",
   "users": [
     {
       "name": "Lucaciu Daiana-Larisa",
@@ -7,10 +9,6 @@
       "address": "Oradea",
       "role": "admin",
       "books": [],
-      "library": {
-        "id": 1,
-        "name": "On Click"
-      },
       "id": 1
     },
     {
@@ -20,10 +18,6 @@
       "address": "Oradea",
       "role": "reader",
       "books": [],
-      "library": {
-        "id": 1,
-        "name": "On Click"
-      },
       "id": 2
     },
     {
@@ -32,10 +26,6 @@
       "email": "ag@gmail.com",
       "address": "Oradea",
       "role": "reader",
-      "library": {
-        "id": 1,
-        "name": "On Click"
-      },
       "books": [],
       "id": 3
     },
@@ -45,10 +35,6 @@
       "email": "",
       "address": "Oradea",
       "role": "reader",
-      "library": {
-        "id": 1,
-        "name": "On Click"
-      },
       "books": [],
       "id": 4
     },
@@ -58,10 +44,6 @@
       "email": "",
       "address": "Oradea",
       "role": "reader",
-      "library": {
-        "id": 1,
-        "name": "On Click"
-      },
       "books": "[]",
       "id": 5
     },
@@ -71,10 +53,6 @@
       "password": "12345",
       "address": "Oradea",
       "role": "reader",
-      "library": {
-        "id": 1,
-        "name": "On Click"
-      },
       "books": [],
       "id": 6
     },
@@ -84,10 +62,6 @@
       "email": "",
       "address": "Oradea",
       "role": "reader",
-      "library": {
-        "id": 1,
-        "name": "On Click"
-      },
       "books": [],
       "id": 7
     },
@@ -98,8 +72,7 @@
       "password": "pass",
       "address": "Oradea",
       "role": "reader",
-      "library": "{\"id\":1,\"name\":\"On Click\"}",
       "id": 9
     }
-  ]
+  ]}
 }
