@@ -16,6 +16,7 @@
 	width: 100% !important;
 	padding-left: 20% !important;
 	padding-top: 20% !important;
+	border-radius: 55% !important;
 }
 
 .buttonL {
@@ -45,6 +46,7 @@
 	width: 300% !important;
 	padding-left: 90% !important;
 	padding-top: 85% !important;
+	
 }
 
 .buttonWarning1 {
@@ -72,13 +74,7 @@
 .infoName {
 	padding-bottom: 10% !important;
 	font-size: 19px !important;
-	padding-left: 40% !important;
-	font-style: oblique !important;
-}
-
-.infoGeneral {
-	padding-bottom: 5% !important;
-	font-size: 16px !important;
+	padding-left: 36% !important;
 	font-style: oblique !important;
 }
 
@@ -104,11 +100,28 @@
 
 .historyR {
 	padding-top: 10% !important;
+	width: 92% !important;
+    padding-left: 7% !important;
 }
 
-.resetAccount {
-	padding: 5% 37% !important;
-	width: 26% !important;
+.resetAccount1 {
+   
+    margin-top: 8%;
+    width: 82% !important;
+    margin-inline: 5% !important;
+    -webkit-text-fill-color: black !important;
+}
+.resetAccount2 {
+   
+    margin-top: 6%;
+    width: 82% !important;
+    margin-inline: 10% !important;
+    background: white !important;
+    -webkit-text-fill-color: black !important;
+}
+
+.imgLayout{
+	    width: 81% !important;
 }
 
 .resetBtn {
@@ -117,15 +130,34 @@
 }
 
 .styleList {
-	width: 100% !important;
+	width: 80% !important;
+    padding-left: 9% !important;
 }
 
 .styleBtnMore {
 	padding: 1% 0% !important;
 	width: 100% !important;
 }
-.styleInputAdd{
+
+.styleInputAdd {
 	padding: 0% 5% !important;
 	width: 70% !important;
-	font-family: ui-serif;
+}
+
+.bookList {
+	padding: 5% 5% !important;
+}
+
+.imageStyle2 {
+	width: 60% !important;
+	padding-left: 20% !important;
+	padding-top: 4% !important;
+	border-radius: 30% !important;
+}
+
+.imageStyle3{
+	width: 80% !important;
+    padding-left: 7% !important;
+    padding-top: !important;
+    border-radius: 55% !important;
 }
