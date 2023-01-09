@@ -37,7 +37,8 @@ sap.ui.jsview("onclick.onclick", {
 			press : [ oController.goToPage, oController ]
 		}).addStyleClass("buttonL");
 		var bNew = new sap.m.Button({
-			text : "Forget password"
+			text : "Forget password",
+			press : [ oController.goToPageReset, oController ]
 		}).addStyleClass("buttonC");
 		var buttonBox = new sap.ui.layout.HorizontalLayout({
 			content : [ bLog, bNew ]
