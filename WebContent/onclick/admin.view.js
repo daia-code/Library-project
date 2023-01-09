@@ -52,10 +52,13 @@ sap.ui.jsview("onclick.admin", {
 			path : "/users",
 			template : new sap.m.StandardListItem({
 				title : "{name}",
-				type : sap.m.ListType.Navigation
+				type : sap.m.ListType.Navigation,
+				press : [ oController.message, oController ]
 			})
 
 		});
+		var listaReader = sap.ui.getCore().getModel("listOfReaders");
+		readerList.setModel(listaReader);
 		var addReader = new sap.m.Button({
 			icon : "sap-icon://add",
 			press : [ oController.createAccount, oController ]
@@ -63,18 +66,86 @@ sap.ui.jsview("onclick.admin", {
 		var firstBox = new sap.ui.layout.VerticalLayout({
 			content : [ readerList, addReader ]
 		}).addStyleClass("styleList");
-		var listaReader = sap.ui.getCore().getModel("listOfReaders");
-		readerList.setModel(listaReader);
-		var readerInfo = new sap.m.StandardListItem({
-			title : "Information about reader"
+	
+		var oCol1 = new sap.m.Column({
+			header : new sap.m.Label({
+				text : "Id"
+			})
+		});
+		var oCol2 = new sap.m.Column({
+			header : new sap.m.Label({
+				text : "Title"
+			}),
+		});
+		var oCol3 = new sap.m.Column({
+			header : new sap.m.Label({
+				text : "Code"
+			}),
+		});
+
+		var oCol4 = new sap.m.Column({
+			header : new sap.m.Label({
+				text : "Publishing"
+			}),
+		});
+		var oCol5 = new sap.m.Column({
+			header : new sap.m.Label({
+				text : "Category"
+			}),
+		});
+		var oCol6 = new sap.m.Column({
+			header : new sap.m.Label({
+				text : "Authors"
+			}),
+		});
+		var oCol7 = new sap.m.Column({
+			header : new sap.m.Label({
+				text : "Borrow"
+			})
+		});
+		var oCol8 = new sap.m.Column({
+			header : new sap.m.Label({
+				text : "Return"
+			})
 
 		});
-		var readerBook = new sap.ui.table.Table({
-			title : "History reading"
+
+		var bookBox = new sap.m.ColumnListItem("tabelHistory", {
+			
+			cells : [ new sap.m.Text( {
+				text : "{table2>id}"
+			}), new sap.m.Text({
+				text : "{table2>title}"
+			}), new sap.m.Text( {
+				text : "{table2>code}"
+			}), new sap.m.Text({
+				text : "{table2>publishing}"
+			}), new sap.m.Text({
+				text : "{table2>category}"
+			}), new sap.m.Text({
+				text : "{table2>authors/name}"
+			}), new sap.m.Text({
+				text : "{table2>history/borrow}"
+			}), new sap.m.Text({
+				text : "{table2>history/return}"
+			}) ]
+		});
+		var readerBook = new sap.m.Table("tableReder", {
+			columns : [ oCol1, oCol2, oCol3, oCol4, oCol5, oCol6, oCol7, oCol8
+
+			]
 
 		}).addStyleClass("historyR");
-		var secondBox = new sap.ui.layout.VerticalLayout({
-			content : [ readerInfo, readerBook ]
+
+		readerBook.bindItems({
+			path : "table2>/",
+			template : bookBox,
+
+		});
+		
+		var secondBox = new sap.ui.layout.VerticalLayout("boxAdmin",{
+			content : [  readerBook ]
+			 			
 		});
 		var spliter = new sap.ui.layout.Splitter({
 			contentAreas : [ firstBox, secondBox ]
@@ -132,14 +203,17 @@ sap.ui.jsview("onclick.admin", {
 					}
 				}).addStyleClass("buttonWarning1")
 			});
+			var oModel = sap.ui.getCore().getModel("model"); 
+			
+			var data=oModel.getData(); 
+			var nameLibrary= data.name;
+			var idLibrary= data.id;
 		var dialogLibrary = new sap.m.Dialog("infoAdmin", {
 			title : "Info",
 			content : [ new sap.ui.layout.VerticalLayout({
 				content : [ new sap.m.Text({
-					text : "Library OnClick"
-				}).addStyleClass("infoName"), new sap.m.Text({
-					text : "Address: University Street no.1"
-				}).addStyleClass("infoGeneral"), new sap.m.Text({
+					text : "Library  "+nameLibrary+idLibrary
+				}).addStyleClass("infoName"),new sap.m.Text({
 					text : "Schedule"
 				}).addStyleClass("infoSchel"), new sap.m.Text({
 					text : "OPEN: Monday-Friday: 8 am - 8 pm"
