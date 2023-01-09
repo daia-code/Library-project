@@ -9,9 +9,36 @@ sap.ui.controller("onclick.admin", {
 	 * @memberOf onclick.admin
 	 */
 	onInit : function() {
-		var oModel3 = sap.ui.getCore().getModel("listOfReaders");
-		oModel3.refresh(true);
+		 var oModel3 = new sap.ui.model.json.JSONModel();
 
+			sap.ui.getCore().setModel(oModel3, "table2");
+
+	},
+	message : function(oEvt) {
+
+		var sClickedData = oEvt.getSource().getTitle();
+		var oModel2 = sap.ui.getCore().getModel("model");
+		var oData2 = oModel2.getData();
+		oData2=oData2.users;
+		
+		var oModel3 = sap.ui.getCore().getModel("table2");
+		var oNewData = [];
+		var ok = 0;
+	
+		for (var i = 0; i < oData2['length']; i++) {
+			if (oData2[i].name === sClickedData) {
+				console.log(oData2[i].name);
+			for (var j = 0; j < oData2[i].books['length']; j++) {
+		        console.log(oData2[i].books)
+				oNewData.push(oData2[i].books[j]);
+			}
+		
+	
+
+		}
+		oModel3.setData(oNewData);
+		
+	}
 	},
 	openSettingsDialog : function(oEvent) {
 		var dialog = sap.ui.getCore().byId("settingsDialog");
