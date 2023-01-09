@@ -1,6 +1,6 @@
 # Json Server Library Api
 
-Simple json server to provide the basic backend functionality of managing calendar entries.
+Simple json server to provide the basic backend functionality of managing library entries.
 To be used for the the SAPUI5 faculty  projects
 
 ## Getting started
