@@ -17,17 +17,19 @@ sap.ui.controller("onclick.onclick", {
 		//console.log(data.users);
 		var oModelU= new sap.ui.model.json.JSONModel();
 		sap.ui.getCore().setModel(oModelU, "modelUsers");
-		var dataUsers=data; // we create a data who will contains jus the array of users
+		var dataUsers=data.users; // we create a data who will contains jus the array of users
 		oModelU.setData(dataUsers);
 		console.log(dataUsers);
 		var listModel = new sap.ui.model.json.JSONModel(); 
 		sap.ui.getCore().setModel(listModel,"listOfReaders");
+		var listBooks= new sap.ui.model.json.JSONModel();
+		sap.ui.getCore().setModel(listBooks,"listOfBooks");
 	},
 
 	loadingData : function() {
 		var oModel = sap.ui.getCore().getModel("model");
 		var i;
-		var sUrl = "http://localhost:5000/users";
+		var sUrl = "http://localhost:5000/library";
 		var oModel = sap.ui.getCore().getModel("model");
 
 		jQuery
@@ -60,21 +62,32 @@ sap.ui.controller("onclick.onclick", {
 
 	},
 	goToPage : function(oEvent) {
+		
 		var oModel = sap.ui.getCore().getModel("modelUsers");
 		var dataUsers=oModel.getData();
 		var nameUser = sap.ui.getCore().byId("inputUser").getValue();
 		var passUser = sap.ui.getCore().byId("passUser").getValue();
 		var listModel =  sap.ui.getCore().getModel("listOfReaders"); 
 		var listOfReaders={"users":[]};
+		var listModel2= sap.ui.getCore().getModel("listOfBooks");
+		var listOfBooks={"books":[]};
 		var helloAdmin = sap.ui.getCore().byId("nameAdmin");
 		var helloReader = sap.ui.getCore().byId("nameReader");
+		
 		if (nameUser == "" || passUser == "") {
 			var wMessage = sap.ui.getCore().byId("wMessage");
 			wMessage.open();
 
 		} else {
 			for(var i=0;i<dataUsers.length;i++){
-				if (nameUser == dataUsers[i].name && dataUsers[i].role=="admin"  ) {
+				if(nameUser ==dataUsers[i].name &&  passUser !=dataUsers[i].password){
+					var wMessage = sap.ui.getCore().byId("wMessage");
+					wMessage.destroyContent();
+					wMessage.addContent(new sap.m.Text({
+						text : "Password incorect"}));
+					wMessage.open();
+				}else
+				if (nameUser == dataUsers[i].name && passUser ==dataUsers[i].password && dataUsers[i].role=="admin"  ) {
 				helloAdmin.setText(nameUser);
 			
 				for(var z=0;z<dataUsers.length;z++){
@@ -86,8 +99,13 @@ sap.ui.controller("onclick.onclick", {
 				listModel.setData(listOfReaders);
 				console.log(listOfReaders);
 				app.to("idadmin");
-			} else if(nameUser == dataUsers[i].name && dataUsers[i].role=="reader" ){
-				var adminName = sap.ui.getCore().byId("nameUser")
+			} else if(nameUser == dataUsers[i].name  && passUser ==dataUsers[i].password && dataUsers[i].role=="reader" ){
+				var adminName = sap.ui.getCore().byId("nameUser");
+				for(var z=0;z<dataUsers[i].books.length;z++){
+				listOfBooks.books.push(dataUsers[i].books[z]);
+				}
+				listModel2.setData(listOfBooks);
+				console.log(listOfBooks);
 				helloReader.setText(nameUser);
 				app.to("idreader");
 			}
