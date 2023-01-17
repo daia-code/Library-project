@@ -61,6 +61,9 @@ sap.ui.controller("onclick.onclick", {
 				})
 
 	},
+	appBack: function() {
+		app.to("identry");
+	},
 	goToPage : function(oEvent) {
 		
 		var oModel = sap.ui.getCore().getModel("modelUsers");
