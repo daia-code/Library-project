@@ -65,6 +65,8 @@ sap.ui.jsview("onclick.onclick", {
 		});
 		var oPage = new sap.m.Page({
 			title : "OnClick",
+			showNavButton : true,
+			navButtonPress : [oController.appBack,oController],
 			content : [ contestBox ]
 		});
 		return oPage;
