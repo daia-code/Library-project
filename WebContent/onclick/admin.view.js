@@ -186,7 +186,7 @@ sap.ui.jsview("onclick.admin", {
 					dialogCreate.close();
 				}
 
-			})]
+			}).addStyleClass("infoSave")]
 
 		});
 			var warningMessage = new sap.m.Dialog("eroareDialog", {
@@ -212,17 +212,17 @@ sap.ui.jsview("onclick.admin", {
 			title : "Info",
 			content : [ new sap.ui.layout.VerticalLayout({
 				content : [ new sap.m.Text({
-					text : "Library  "+nameLibrary+idLibrary
+					text : "Library  "+nameLibrary
 				}).addStyleClass("infoName"),new sap.m.Text({
-					text : "Schedule"
-				}).addStyleClass("infoSchel"), new sap.m.Text({
+					text : "ID "+idLibrary
+				}).addStyleClass("infoName"), new sap.m.Text({
+					text : "Schedule:"
+				}).addStyleClass("infoGeneral"), new sap.m.Text({
 					text : "OPEN: Monday-Friday: 8 am - 8 pm"
 				}).addStyleClass("infoGeneral"), new sap.m.Text({
 					text : "OPEN: Saturday: 9 am - 1 pm"
 				}).addStyleClass("infoGeneral"), new sap.m.Text({
 					text : "CLOSE: Sunday"
-				}).addStyleClass("infoGeneral"), new sap.m.Text({
-					text : "domain:http://localhost:50000/onclick"
 				}).addStyleClass("infoGeneral"), new sap.m.Button({
 					text : "Close",
 					type : sap.m.ButtonType.Success,
