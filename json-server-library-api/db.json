@@ -3,12 +3,11 @@
   "name": "On Click",
   "users": [
     {
-      "name": "Lucaciu Daiana-Larisa",
+      "name": "admin",
       "password": "admin",
       "email": "admin@onclick.ro",
       "address": "Oradea",
       "role": "admin",
-      "books": [],
       "id": 1
     },
     {
@@ -17,7 +16,9 @@
       "email": "has@gmail.com",
       "address": "Oradea",
       "role": "reader",
-      "books": [],
+      "books": [{"id":1,"title":"Amintiri din copilarie",
+      "code":1892,"publishing":"Litera","category":["Biografie","Memorii"],"authors":{"name":["Ion Creanga"]},"history":{"borrow":"5/01/2023","return":"25/01/2023"}},
+{"id":2,"title":"Luceafărul","code":1883,"publishing":" Agora","category":["poem de dragoste"],"authors":{"name":["Mihai Eminescu"]},"history":{"borrow":"5/01/2023","return":"20/01/2023"}}],
       "id": 2
     },
     {
@@ -44,7 +45,9 @@
       "email": "",
       "address": "Oradea",
       "role": "reader",
-      "books": "[]",
+      "books": [{"id":1,"title":"Amintiri din copilarie",
+      "code":1892,"publishing":"Litera","category":["Biografie","Memorii"],"authors":{"name":["Ion Creanga"]},"history":{"borrow":"5/01/2023","return":"25/01/2023"}},
+{"id":2,"title":"Luceafărul","code":1883,"publishing":" Agora","category":["poem de dragoste"],"authors":{"name":["Mihai Eminescu"]},"history":{"borrow":"5/01/2023","return":"20/01/2023"}}],
       "id": 5
     },
     {
@@ -53,7 +56,9 @@
       "password": "12345",
       "address": "Oradea",
       "role": "reader",
-      "books": [],
+      "books": [{"id":1,"title":"Poveşti şi povestiri",
+      "code":1892,"publishing":"Litera","category":["povesti"],"authors":{"name":["Ion Creanga"]},"history":{"borrow":"3/01/2023","return":"25/01/2023"}},
+{"id":2,"title":"Floare albastră","code":1873,"publishing":"Semn","category":["poezie"],"authors":{"name":["Mihai Eminescu"]},"history":{"borrow":"10/01/2023","return":"20/01/2023"}}],
       "id": 6
     },
     {
@@ -67,7 +72,7 @@
     },
     {
       "name": "daiana",
-      "books": "[]",
+      "books": [],
       "email": "lucaciu@gmail.com",
       "password": "pass",
       "address": "Oradea",
